@@ -70,8 +70,8 @@ public class MemoryStore implements Store<Driver, LatLng> {
 		Driver nearestShop = null;
 		for (Driver shop : data) {
 			// latitude and longitude of the shop to compare
-			double lat2 = shop.getShop1().getShopLatitude();
-			double lon2 = shop.getShop1().getShopLongitude();
+			double lat2 = shop.getShop1().getDriverLatitude();
+			double lon2 = shop.getShop1().getDriverLongitude();
 			// distance to the shop in comparison
 			double dist = Util.haversine(lat1, lon1, lat2, lon2);
 			// if the shop in comparison is nearer than the previous shop or if
@@ -79,7 +79,7 @@ public class MemoryStore implements Store<Driver, LatLng> {
 			if (dist < nearestDist || nearestDist == -1) {
 				nearestShop = shop;
 				nearestDist = dist;
-				LOG.log(Level.INFO, " Shop " + nearestShop.getShop1().getShopName() + " found at " + nearestDist + " KM");
+				LOG.log(Level.INFO, " Shop " + nearestShop.getShop1().getDriverName() + " found at " + nearestDist + " KM");
 			}
 		}
 		return nearestShop;

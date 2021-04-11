@@ -88,8 +88,8 @@ public class CommandLineServiceImpl implements CommandLineService {
 
 	
 	public void affecterCLToProduct(Long idCl, Long idp) {
-		Product p = proRepository.findById(idp).get();
-		Command_line cl =commandLineRepository.findById(idCl).get();
+		Product p = proRepository.findById(idCl).get();
+		Command_line cl =commandLineRepository.findById(idp).get();
 		
 		cl.setProducts((List<Product>) p);
 		proRepository.save(p);

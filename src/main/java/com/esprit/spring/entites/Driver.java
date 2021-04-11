@@ -24,6 +24,7 @@ public class Driver implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "idDriver")
 	private Long idDriver;
+	
 	@Embedded
 	private Shop shop1;
 	

@@ -118,6 +118,17 @@ private static final org.apache.logging.log4j.Logger l= LogManager.getLogger(Dri
 	
 	}
 	
+	@Override
+	public String affecterDeliverytoDriver(Long idDriver, Long idDeli) {
+	Driver d = driverRepository.findById(idDeli).get();
+	Delivery deli = deliveryRepository.findById(idDriver).get();
+	
+	deli.setDriver(d);
+	driverRepository.save(d);
+	return "affecterDeliverytoDriver";
+	
+	}
+	
 	
 
 	

@@ -95,10 +95,10 @@ public class GeocodeService {
 	 * @return
 	 */
 	private String getFormattedAddress(Driver shop) {
-		Address address = shop.getShop1().getShopAddress();
+		Address address = shop.getShop1().getDriverAddress();
 		StringBuilder formattedAddress = new StringBuilder();
-		if (Objects.nonNull(shop.getShop1().getShopName())) {
-			formattedAddress.append(shop.getShop1().getShopName()).append(",");
+		if (Objects.nonNull(shop.getShop1().getDriverName())) {
+			formattedAddress.append(shop.getShop1().getDriverName()).append(",");
 		}
 		if (Objects.nonNull(address.getNumber())) {
 			formattedAddress.append(address.getNumber()).append(",");

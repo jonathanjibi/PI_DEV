@@ -10,5 +10,6 @@ public interface DeliveryService {
 	void deleteDelivery (Long deliveryId);		
 	Delivery updateDelivery(Delivery deli);
 	Delivery retrieveDelivery(Long deliveryId);
+	int livraisonfrais(Long deliveryId);
 	
 }

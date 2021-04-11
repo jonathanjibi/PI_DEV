@@ -39,6 +39,32 @@ public class DriverController {
 	"emailDriver":"ghrgh@fgefg.com",
 	"location":"fgnrnrn",
 	"nbrDeliveryAffected":70*/
+	
+	/*{
+    "idDriver":1,
+    "shop1": {
+        "driverAddress": {
+             
+            "number": "741",
+            "addressLine1": "hgg",
+            "addressLine2": "rrr",
+            "postCode": "1478"
+        
+        },
+        "driverName": "abir",
+        "driverLongitude": 15.6,
+        "driverLatitude": 200
+    },
+    "lastName": "med",
+    "firsttName": "ihsen",
+    "salaire": 1025,
+    "emailDriver": "ghrgh@fgefg.com",
+    "nbrDeliveryAffected": 60,
+    "deliveries": [],
+    "automobiles": [],
+    "location": "fgnrnrn",
+    "phone": "22914704"
+}*/
 	@PostMapping(value = "/add-driver")
 	@ResponseBody
 	public Driver addDriver(@RequestBody Driver driver) {
@@ -83,6 +109,7 @@ public class DriverController {
 	List<Driver> list = driverService.retrieveAllDrivers();
 	return list;
 	}
+	//ok
 	@GetMapping("/drivermounth")
 	@ResponseBody
 	public long DriverMounth() {
@@ -95,23 +122,30 @@ public class DriverController {
 		return  driverService.affecterDriverToDelivery(idDriver, deliveryId);
 	}*/
 	
-	
+	//ok
 	@GetMapping("/setSal/{id-driver}")
 	@ResponseBody
 	public Long setSalary(Long nbrDeliveryAffected, @PathVariable("id-driver")Long idDriver) {
 		return  driverService.setSalary(idDriver);
-		
+	//ok	
 	}
 	@GetMapping("/getDelivery/{driver-id}")
 	@ResponseBody
 	public Long getDelivery(Long nbrDeliveryAffected,@PathVariable("driver-id")Long idDriver) {
 		return driverService.getDelivery(nbrDeliveryAffected, idDriver);
 	}
-	
+	//ok
 	@PostMapping("/affecterAutotoDrive/{driver-id}/{auto-id}")
 	public String affecterAutotoDriver(@PathVariable("driver-id")Long idDriver,@PathVariable("auto-id") Long idAuto) {
 		return driverService.affecterAutotoDriver(idDriver, idAuto);
 	}
+	//ok
+	@PostMapping("/affecterDelitoDrive/{driver-id}/{deli-id}")
+	public String affecterDeliverytoDriver(@PathVariable("driver-id")Long idDriver,@PathVariable("deli-id") Long idDeli) {
+		return driverService.affecterDeliverytoDriver(idDriver, idDeli);
+	}
+	
+	
 	
 	
 
@@ -135,8 +169,8 @@ public class DriverController {
 	public void addShop(@RequestBody Driver shop) {
 		LatLng geocode = geocodeService.getGeocode(shop);
 		if (null != geocode) {
-			shop.getShop1().setShopLatitude(geocode.lat);
-			shop.getShop1().setShopLongitude(geocode.lng);
+			shop.getShop1().setDriverLatitude(geocode.lat);
+			shop.getShop1().setDriverLongitude(geocode.lng);
 		}
 		store.add(shop);
 	}

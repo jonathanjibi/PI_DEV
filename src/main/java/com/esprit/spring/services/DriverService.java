@@ -15,4 +15,5 @@ public interface DriverService {
 	public Long setSalary(Long idDriver);
 	public long DriverMounth();
 	public String affecterAutotoDriver(Long idDriver,Long idAuto);
+	String affecterDeliverytoDriver(Long idDriver, Long idDeli);
 }

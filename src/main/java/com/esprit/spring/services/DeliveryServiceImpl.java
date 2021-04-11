@@ -46,5 +46,27 @@ public class DeliveryServiceImpl implements  DeliveryService{
 		Delivery deli= deliveryRepository.findById(deliveryId).get();
 		return deli;
 	}
-
+	
+	@Override
+	public int livraisonfrais(Long deliveryId) {
+		// TODO Auto-generated method stub
+		float dl ,da ; 
+		
+		 int frais=8;
+		 Delivery deli = deliveryRepository.findById(deliveryId).get() ; 
+		 dl=deli.getLongitude()-36;//tunis = 36
+		 da=deli.getLaltitude()-10;//tunis = 10
+		
+		 if (deli.getWeight()>50) {
+			 frais = frais+4 ;
+		 }
+		 
+		 if((deli.getWidth()>1500)||(deli.getLenght()>1500)) 
+			 frais=frais+4;
+		
+		 if((dl>1)&&(da>1)) //si distance > tunis et bizerte 
+				frais=frais+4; 
+			 
+		 return frais;
+}
 }

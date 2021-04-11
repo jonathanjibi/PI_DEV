@@ -7,44 +7,52 @@ import javax.persistence.Embedded;
 @Embeddable
 public class Shop {
     @Column
-	private String shopName;
+	private String DriverName;
+    
     @Embedded
-	private Address shopAddress;
+	private Address DriverAddress;
+    
 	@Column
-	private double shopLatitude;
+	private double DriverLatitude;
+	
 	@Column
-	private double shopLongitude;
+	private double DriverLongitude;
+
+	public String getDriverName() {
+		return DriverName;
+	}
+
+	public void setDriverName(String driverName) {
+		DriverName = driverName;
+	}
+
+	public Address getDriverAddress() {
+		return DriverAddress;
+	}
+
+	public void setDriverAddress(Address driverAddress) {
+		DriverAddress = driverAddress;
+	}
+
+	public double getDriverLatitude() {
+		return DriverLatitude;
+	}
+
+	public void setDriverLatitude(double driverLatitude) {
+		DriverLatitude = driverLatitude;
+	}
+
+	public double getDriverLongitude() {
+		return DriverLongitude;
+	}
+
+	public void setDriverLongitude(double driverLongitude) {
+		DriverLongitude = driverLongitude;
+	}
+	
+	
+
 
 	
-	public double getShopLatitude() {
-		return shopLatitude;
-	}
-
-	public void setShopLatitude(double shopLatitude) {
-		this.shopLatitude = shopLatitude;
-	}
-
-	public double getShopLongitude() {
-		return shopLongitude;
-	}
-
-	public void setShopLongitude(double shopLongitude) {
-		this.shopLongitude = shopLongitude;
-	}
-
-	public String getShopName() {
-		return shopName;
-	}
-
-	public void setShopName(String shopName) {
-		this.shopName = shopName;
-	}
-
-	public Address getShopAddress() {
-		return shopAddress;
-	}
-
-	public void setShopAddress(Address shopAddress) {
-		this.shopAddress = shopAddress;
-	}
+	
 }

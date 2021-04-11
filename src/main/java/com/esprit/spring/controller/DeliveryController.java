@@ -61,4 +61,10 @@ public class DeliveryController {
 	List<Delivery> list = deliveryService.retrieveAllDeliveries();
 	return list;
 	}
+	
+	@GetMapping ("/frais/{deliveryId}")
+	public int getfrais (@PathVariable("deliveryId") Long deliveryId) {
+	
+	return deliveryService.livraisonfrais(deliveryId) ;
+}
 }
