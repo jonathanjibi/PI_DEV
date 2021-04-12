@@ -117,7 +117,7 @@ private static final org.apache.logging.log4j.Logger l= LogManager.getLogger(Dri
 	return "affecterAutotoDriver";
 	
 	}
-	
+	//ok
 	@Override
 	public String affecterDeliverytoDriver(Long idDriver, Long idDeli) {
 	Driver d = driverRepository.findById(idDeli).get();

@@ -30,8 +30,21 @@ public class Basket implements Serializable {
 	@JoinColumn(name="visitor" ,nullable= true)
 	private Visitor visitor;
 	
+	@OneToOne
+	private Facture facture;
 	
-	 @ManyToOne
+	 public Facture getFacture() {
+		return facture;
+	}
+
+
+
+
+	public void setFacture(Facture facture) {
+		this.facture = facture;
+	}
+
+	@ManyToOne
 	 private Command_line commandLine;
 	 
 	

@@ -86,4 +86,9 @@ public class CommandLineController {
 	public void affecterCLToProduct(@PathVariable ("idcl")Long idCl,@PathVariable ("idp") Long idp) {
 		commandLineService.affecterCLToProduct(idCl, idp);
 	}
+	
+	@PostMapping("/affecterCltoBasket/{idcl}/{idba}")
+	public String affecterCltoBasket(@PathVariable("idcl")Long idcl,@PathVariable("idba") Long idba) {
+		return commandLineService.affecterCltoBasket(idcl, idba);
+	}
 }

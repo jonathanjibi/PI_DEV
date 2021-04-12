@@ -55,8 +55,7 @@ public class Product implements Serializable {
 	Ray ray;
 	
    @ManyToOne
-   
-   private Command_line commandLine;
+    private Command_line commandLine;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="product")
 	private List<Claim> claims;
