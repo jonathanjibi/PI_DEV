@@ -82,13 +82,13 @@ public class CommandLineController {
 		return commandLineService.getLastProd();
 		
 	}
-	@PostMapping("/affecterClToP/{idcl}/{idp}")
-	public void affecterCLToProduct(@PathVariable ("idcl")Long idCl,@PathVariable ("idp") Long idp) {
-		commandLineService.affecterCLToProduct(idCl, idp);
+	@PostMapping("/affecterProToCl/{idcl}/{idp}")
+	public String affecterProductToCl(@PathVariable ("idcl")Long idcl,@PathVariable ("idp") Long idp) {
+		return commandLineService.affecterProductToCl(idcl, idp);
 	}
 	
-	@PostMapping("/affecterCltoBasket/{idcl}/{idba}")
-	public String affecterCltoBasket(@PathVariable("idcl")Long idcl,@PathVariable("idba") Long idba) {
-		return commandLineService.affecterCltoBasket(idcl, idba);
+	@PostMapping("/affecterBasketsToCl/{idcl}/{idba}")
+	public String affecterBasketsToCl(@PathVariable("idcl")Long idcl,@PathVariable("idba") Long idba) {
+		return commandLineService.affecterBasketsToCl(idcl, idba);
 	}
 }

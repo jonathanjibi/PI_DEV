@@ -34,6 +34,29 @@ public class Driver implements Serializable {
 	@Column(name="firstName")
 	private String firsttName; 
 	
+	
+	@Column(name="Phone")
+	private String Phone;
+	
+	@Column(name="Salaire")
+	private Long salaire;
+	
+	@Column(name="emailDriver")
+	private String emailDriver;
+	
+	@Column(name="Location")
+	private String Location;
+	
+	@Column(name="nbrDeliveryAffected")
+	private Long nbrDeliveryAffected;
+
+	@OneToMany(mappedBy="driver")
+	private List<Delivery> deliveries;
+	
+	
+	@ManyToMany
+	private List<Automobile> automobiles ;
+	
 	public Shop getShop1() {
 		return shop1;
 	}
@@ -59,27 +82,6 @@ public class Driver implements Serializable {
 		this.shop1 = shop1;
 	}
 
-	@Column(name="Phone")
-	private String Phone;
-	
-	@Column(name="Salaire")
-	private Long salaire;
-	
-	@Column(name="emailDriver")
-	private String emailDriver;
-	
-	@Column(name="Location")
-	private String Location;
-	
-	@Column(name="nbrDeliveryAffected")
-	private Long nbrDeliveryAffected;
-
-	@OneToMany(mappedBy="driver")
-	private List<Delivery> deliveries;
-	
-	
-	@ManyToMany
-	private List<Automobile> automobiles ;
 	
 	
 	public List<Automobile> getAutomobiles() {

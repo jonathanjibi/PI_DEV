@@ -93,13 +93,14 @@ public class CommandLineServiceImpl implements CommandLineService {
 		return commandLineRepository.findById(id).get();
 	}
 
-	
-	public void affecterCLToProduct(Long idCl, Long idp) {
+	//non
+	public String affecterProductToCl(Long idcl, Long idp) {
+		Command_line cl =commandLineRepository.findById(idcl).get();
 		Product p = proRepository.findById(idp).get();
-		Command_line cl =commandLineRepository.findById(idCl).get();
 		
-		cl.setProducts((List<Product>) p);
-		proRepository.save(p);
+		p.setCommandLine(cl);
+		commandLineRepository.save(cl);
+		return "affecterProductToCl";
 	}
 
 	@Override
@@ -108,14 +109,15 @@ public class CommandLineServiceImpl implements CommandLineService {
 		return null;
 		
 	}
-	
+	//ok
 	@Override
-	public String affecterCltoBasket(Long idcl, Long idba) {
-	Command_line cl = commandLineRepository.findById(idba).get();
+	public String affecterBasketsToCl(Long idcl, Long idba) {
+	Command_line cl = commandLineRepository.findById(idcl).get();
 
-	Basket b = basketRepository.findById(idcl).get();
+	Basket b = basketRepository.findById(idba).get();
 	
-	
-	return "affecterCltoBasket";
+	b.setCommandLine(cl);
+	commandLineRepository.save(cl);
+	return "affecterBasketToCl";
 }
 }

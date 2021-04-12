@@ -16,7 +16,7 @@ public interface CommandLineService {
 	public Command_line addCommandLine(Long prodId, Long quantity);
 	public void updateCommandLineById(Long idcl, Long quantity);
 	public int getLastProd();
-	 void affecterCLToProduct(Long idCl, Long idp);
-	String affecterCltoBasket(Long idcl, Long idba);
+	public String affecterProductToCl(Long idcl, Long idp);
+	String affecterBasketsToCl(Long idcl, Long idba);
 	
 }

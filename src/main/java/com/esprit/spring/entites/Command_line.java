@@ -31,12 +31,12 @@ private static final long serialVersionUID = 1L;
 	private Long quantityPurchased;
 	
 	@OneToMany
-	@JoinColumn(name = "basketId" ,nullable=true)
-	private List <Basket> baskets;
+	@JoinColumn(name = "basketId")
+	private List<Basket> baskets;
 	
 	
 	@OneToMany
-	@JoinColumn(name = "id",nullable=true)
+	@JoinColumn(name = "id")
 	private List<Product> products;
 	
 	@Column(name="prixToPay")
@@ -94,6 +94,17 @@ private static final long serialVersionUID = 1L;
 
 
 	public void setPrixToPay(float prixToPay) {
+		this.prixToPay = prixToPay;
+	}
+
+
+	public Command_line(Long id, Long quantityPurchased, List<Basket> baskets, List<Product> products,
+			float prixToPay) {
+		super();
+		this.id = id;
+		this.quantityPurchased = quantityPurchased;
+		this.baskets = baskets;
+		this.products = products;
 		this.prixToPay = prixToPay;
 	}
 	
