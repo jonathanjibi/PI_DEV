@@ -95,8 +95,10 @@ public class CommandLineServiceImpl implements CommandLineService {
 
 	//non
 	public String affecterProductToCl(Long idcl, Long idp) {
-		Command_line cl =commandLineRepository.findById(idcl).get();
+		Command_line cl = commandLineRepository.findById(idcl).get();
+		System.out.println("hello");
 		Product p = proRepository.findById(idp).get();
+		System.out.println("select");
 		
 		p.setCommandLine(cl);
 		commandLineRepository.save(cl);
