@@ -1,0 +1,83 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" style="color:rgb(255, 255, 255);"Automobile></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        
+      
+    </div>
+    <div class="container" id="main-container">
+        <div class="row">
+          <div *ngFor="let bas of baskets" class="col-md-6 col-xl-3">
+             <div class="card m-b-30">
+                <div class="card-body row">
+       
+                   
+                   <div class="col-6 card-title align-self-center mb-0"> 
+                    <h5>ID :{{bas?.basketId}}</h5>
+
+                    <p class="m-0">Prix Tot : {{bas?.prixTotal}}</p>
+                    <p class="m-0">Validité: {{bas.isValid}}</p>
+                    <p class="m-0">Quantité de produit  : {{bas?.quantiteTotale}}</p>
+                    </div>
+                     
+                    <div class="card-body">
+             
+                        <div class="float-right btn-group btn-group-sm">
+                          
+                           <a class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+                           <a (click)="onDeleteDeliveryman(bas.basketId)" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+                          
+                         
+            
+            
+                        
+                  </div>
+               </div> 
+ 
+  
+                
+          </div>
+       </div>
+   
+
+
+
+
+   
+ 
+<div class="modal-content" >
+    <div class="modal-header">
+       <h5 class="modal-title" id="addEmployeeModalLabel">Add Basket</h5>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+       </button>
+    </div>
+    <div class="modal-body">
+        <form #addForm="ngForm" (ngSubmit)="onAddEmloyee(addForm)">
+            <div class="form-group">
+               <label for="basketId">basketId</label>
+               <input type="text" ngModel name="basketId" class="form-control" id="basketId" placeholder="Basket Id" required>
+            </div>
+          
+            <div class="form-group">
+               <label for="isValid">isValid</label>
+               <input type="boolean" ngModel name="isValid" class="form-control" id="isValid" placeholder="isValid" required>
+            </div>
+            <div class="form-group">
+               <label for="quantiteTotale">quantiteTotale</label>
+               <input type="text" ngModel name=">quantiteTotale" class="form-control" id=">quantiteTotale" placeholder=">quantiteTotale" required>
+            </div>
+            
+        
+            
+            <div class="modal-footer">
+        
+               <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+            </div>
+            </form > 
+    </div>
+ </div>
