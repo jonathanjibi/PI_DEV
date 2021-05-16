@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" style="color:rgb(255, 255, 255);"Automobile></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+         <input type="search" (ngModelChange)="searchDeliveryman(key.value)" #key="ngModel" ngModel
+          name="typeAuto" id="typeAuto" class="form-control mr-sm-2" placeholder="Search By Type Auto" required>
+      </form>
+      
+    </div>
+ </nav>
+  <div class="container" id="main-container">
+  <div class="row">
+    <div *ngFor="let auto of autos" class="col-md-6 col-xl-3">
+       <div class="card m-b-30">
+          <div class="card-body row">
+ 
+             
+             <div class="col-6 card-title align-self-center mb-0">
+                <h5>ID :{{auto?.idAuto}}</h5>
+
+                <p class="m-0">Type of Automobile: {{auto?.typeAuto}}</p>
+                <p class="m-0">Power of Automobile : {{auto?.power}}</p>
+                
+
+             </div>
+          </div>
+          <div class="card-body">
+             
+            <div class="float-right btn-group btn-group-sm">
+              
+               <a class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+               <a (click)="onDeleteDeliveryman(auto.idAuto)" class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"><i class="fa fa-times"></i></a>
+              
+             
+
+
+            
+      </div>
+   </div>
+
+   </div>
+    </div>
+ 
+    <div class="modal-content" >
+        <div class="modal-header">
+           <h5 class="modal-title" id="addEmployeeModalLabel">Add Automobile</h5>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+        </div>
+        <div class="modal-body">
+            <form #addForm="ngForm" (ngSubmit)="onAddEmloyee(addForm)">
+                <div class="form-group">
+                   <label for="idAuto">idAuto</label>
+                   <input type="text" ngModel name="idAuto" class="form-control" id="idAuto" placeholder="id Auto" required>
+                </div>
+                <div class="form-group">
+                   <label for="typeAuto">Type Of Auto </label>
+                   <input type="typeAuto" ngModel name="typeAuto" class="form-control" id="typeAuto" placeholder="Type Of Auto" required>
+                </div>
+                
+                <div class="form-group">
+                   <label for="power">Power</label>
+                   <input type="text" ngModel name="power" class="form-control" id="power" placeholder="Power" required>
+                </div>
+               
+                
+                <div class="modal-footer">
+            
+                   <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary" >Save changes</button>
+                </div>
+            </form > 
+        </div>
+     </div>
